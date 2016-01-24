@@ -54,7 +54,7 @@ By default it uses port `9977` and binds to `0.0.0.0`.
 This can be changed by providing `-l, --listen` option, e.g.:
 
 ```bash
-recorder daemon -l=127.0.0.1:3789   # or --listen=127.0.0.1:3789
+recorder daemon -l 127.0.0.1:3789   # or --listen=127.0.0.1:3789
 ```
 
 ### Fetch last recorded data by method & URL
@@ -72,7 +72,7 @@ recorder fetch POST /api/v2/user
 Use `-i, --index` option for that:
 
 ```bash
-recorder fetch -i=2 POST /api/v2/user
+recorder fetch -i 2 POST /api/v2/user    # or --index=2
 ```
 
 ### Reset recorder
@@ -81,6 +81,14 @@ recorder fetch -i=2 POST /api/v2/user
 
 ```bash
 recorder reset
+```
+
+### Terminating daemon
+
+It is enough to send `_TERMINATE` request to a server:
+
+```bash
+curl -X_TERMINATE localhost:9977
 ```
 
 ### Expectations

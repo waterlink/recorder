@@ -1,8 +1,22 @@
 package main
 
-import "fmt"
+import "flag"
+
+type Daemon struct {
+	args   []string
+	listen Listen
+}
 
 func DaemonAction(args []string) error {
-	fmt.Printf("Daemon will start with args: %#v\n", args)
-	return nil
+	return (&Daemon{
+		args:   args,
+		listen: NewListen(),
+	}).Start()
+}
+
+func (d *Daemon) Start() error {
+	flag.Usage = UsageFor("daemon")
+	flag.CommandLine.Parse(d.args)
+
+	return NewServer(d.listen).Start()
 }
