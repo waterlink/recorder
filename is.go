@@ -37,9 +37,5 @@ func (i *Is) Run() error {
 		return fmt.Errorf("Unable to load record: %s", err)
 	}
 
-	if record.Data != data {
-		return fmt.Errorf("Expectation failed on record's data:\n\tExpected: %s\n\tActual:   %s\n\n", data, record.Data)
-	}
-
-	return nil
+	return NewExpectation(data, *i.jsonPath).Verify(record)
 }
