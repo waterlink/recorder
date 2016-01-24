@@ -2,6 +2,6 @@
 
 set -e
 
-if ! [[ -z "$TRAVIS_TAG" ]]; then
+if ! [[ -z "$TRAVIS_TAG" ]] && go version | grep -F go1.5; then
   ./script/build-all
 fi
