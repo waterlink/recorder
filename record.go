@@ -2,12 +2,10 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"io"
 	"io/ioutil"
 	"net/url"
 	"os"
-	"path"
 )
 
 const (
@@ -15,12 +13,6 @@ const (
 	FilePerm       = 0664
 	RecordsBaseDir = ".recorder"
 )
-
-type SerializedRecord struct {
-	Method string
-	Path   string
-	Data   string
-}
 
 type Record struct {
 	method string
@@ -32,14 +24,14 @@ type Record struct {
 }
 
 func NewRecord(method string, url *url.URL, body io.ReadCloser) *Record {
-	wd, err := os.Getwd()
+	baseDir, err := BaseDir()
 
 	return &Record{
 		method: method,
 		url:    url,
 		body:   body,
 
-		baseDir: path.Join(wd, RecordsBaseDir),
+		baseDir: baseDir,
 		lazyErr: err,
 	}
 }
@@ -50,19 +42,10 @@ func (r *Record) Save() error {
 		return err
 	}
 
-	dir := path.Join(r.baseDir, r.method, r.url.Path)
-	if err := os.MkdirAll(dir, DirPerm); err != nil {
-		return err
-	}
-
-	records, err := ioutil.ReadDir(dir)
+	filename, err := NextRecordFileName(r.method, r.url.Path)
 	if err != nil {
 		return err
 	}
-
-	index := len(records)
-	name := fmt.Sprintf("%d.json", index)
-	filename := path.Join(dir, name)
 
 	data, err := r.data()
 	if err != nil {

@@ -43,8 +43,6 @@ modification.
 
 ### Start the recorder daemon
 
-*NOTE: not implemented yet*
-
 ```bash
 recorder daemon
 ```
@@ -57,22 +55,18 @@ This can be changed by providing `-l, --listen` option, e.g.:
 recorder daemon -l 127.0.0.1:3789   # or --listen=127.0.0.1:3789
 ```
 
-### Fetch last recorded data by method & URL
-
-*NOTE: not implemented yet*
+### Get last recorded data by method & URL
 
 ```bash
-recorder fetch POST /api/v2/user
+recorder get POST /api/v2/user
 ```
 
-### Fetch specific recorded data by method, URL & index
-
-*NOTE: not implemented yet*
+### Get specific recorded data by method, URL & index
 
 Use `-i, --index` option for that:
 
 ```bash
-recorder fetch -i 2 POST /api/v2/user    # or --index=2
+recorder get -i 2 POST /api/v2/user    # or --index=2
 ```
 
 ### Reset recorder
