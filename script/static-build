@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+mkdir -p artefacts
+CGO_ENABLED=0 GOOS=$1 GOARCH=$2 go build -ldflags "-s" -a -installsuffix cgo -o ./artefacts/recorder-$1-$2
