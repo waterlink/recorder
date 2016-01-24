@@ -7,6 +7,7 @@ var (
 		"daemon": DaemonAction,
 		"get":    GetAction,
 		"reset":  ResetAction,
+		"is":     IsAction,
 	}
 )
 

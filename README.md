@@ -87,8 +87,6 @@ curl -X_TERMINATE localhost:9977
 
 #### Expect equal last recorded data
 
-*NOTE: not implemented yet*
-
 ```bash
 recorder is POST /api/v2/user = "email=john@example.org&password=welcome"
 ```
@@ -104,10 +102,8 @@ When expectation fails, `is` command returns exit code `1`.
 *NOTE: not implemented yet*
 
 ```bash
-recorder is --json-path=user/email POST /api/v2/user = "email=john@example.org"
+recorder is --json-path=user/email POST /api/v2/user = "john@example.org"
 ```
-
-This will fail with exit code `126`, if actual data was not a parse-able JSON.
 
 ### Usage design TODO
 

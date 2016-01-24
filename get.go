@@ -28,7 +28,9 @@ func (g *Get) Run() error {
 		return errors.New("Expecting 2 arguments: METHOD PATH")
 	}
 
-	record, err := LoadRecord(args[0], args[1], *g.index)
+	method, path := args[0], args[1]
+
+	record, err := LoadRecord(method, path, *g.index)
 	if err != nil {
 		return fmt.Errorf("Unable to load record: %s", err)
 	}
