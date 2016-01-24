@@ -1,4 +1,4 @@
-# Recorder
+# Recorder [![Build Status](https://travis-ci.org/waterlink/recorder.svg?branch=master)](https://travis-ci.org/waterlink/recorder)
 
 Simple application that records all incoming HTTP requests and writes them down
 to a filesystem in a conventional directory structure. Intended to be used in
