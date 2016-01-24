@@ -3,7 +3,7 @@
 SRC_PATH=/go/src/github.com/waterlink/recorder
 
 need_user="-u $(id -u):$(id -g)"
-if [[ "$(arch)" = "Darwin" ]]; then
+if [[ "$(uname)" = "Darwin" ]]; then
   need_user=
 fi
 
