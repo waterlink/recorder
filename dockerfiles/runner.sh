@@ -15,6 +15,8 @@ fi
 
 dir_opts="-v /tmp/.recorder:/tmp/.recorder -w /tmp"
 
+mkdir -p /tmp/.recorder
+
 docker run \
   $need_user \
   $dir_opts \
