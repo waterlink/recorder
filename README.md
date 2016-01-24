@@ -99,8 +99,6 @@ When expectation fails, `is` command returns exit code `1`.
 
 #### Expect JSON path to be equal
 
-*NOTE: not implemented yet*
-
 ```bash
 recorder is --json-path=user/email POST /api/v2/user = "john@example.org"
 ```
