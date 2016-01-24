@@ -34,6 +34,7 @@ It is recommended to use a [runner script](/dockerfiles/runner.sh) as a
 
 ```bash
 curl -L https://github.com/waterlink/recorder/raw/master/dockerfiles/runner.sh > ~/bin/recorder
+chmod a+x ~/bin/recorder
 ```
 
 Then all examples from [usage section](#usage) should still work without
