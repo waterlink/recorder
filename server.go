@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log"
 	"net/http"
 	"time"
 )
@@ -38,6 +39,16 @@ func NewServer(listen Listen) *Server {
 func (s *Server) Handler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == ServerTerminateMethod {
 		s.stop <- nil
+		return
+	}
+
+	if r.Method != "GET" {
+		defer r.Body.Close()
+	}
+
+	if err := NewRecord(r.Method, r.URL, r.Body).Save(); err != nil {
+		log.Printf("Unable to save record %s %s: %s", r.Method, r.URL.Path, err)
+		return
 	}
 }
 
