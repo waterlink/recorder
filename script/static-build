@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# USAGE: ./script/static-build OS ARCH VERSION
+
+set -e
+
+mkdir -p artefacts
+CGO_ENABLED=0 GOOS=$1 GOARCH=$2 go build -ldflags "-s" -a -installsuffix cgo -o ./artefacts/recorder-$3-$1-$2

@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+SRC_PATH=/go/src/github.com/waterlink/recorder
+
+need_user="-u $(id -u):$(id -g)"
+if [[ "$(arch)" = "Darwin" ]]; then
+  need_user=
+fi
+
+docker run \
+  --rm \
+  -v $(pwd):$SRC_PATH \
+  -w $SRC_PATH \
+  -e "SHELL_OVERRIDE=sh" \
+  $need_user \
+  golang:1.5-alpine \
+  sh ./script/build-all
