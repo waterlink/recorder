@@ -1,4 +1,4 @@
-lang: go
+language: go
 
 go:
 - 1.4
@@ -6,4 +6,14 @@ go:
 - tip
 
 script:
-- ./tests/run.sh && script/cd
+- "./tests/run.sh && script/cd"
+
+deploy:
+  provider: releases
+  api_key:
+    secure: SD+SUtth88WLCZKL7U0jQWYJ1go0+4XQwbl32fk2bbPGDJbpNIna12TfK/QRFOukqYlxmGwLhLpibXUbbROWwtvaQuBu20L8Pm5SjO/GXGI5q7V9nubpmnv1n9g9pK/QEfOA3nP8olImfz23F2OA27nzwe1KLZwEKDB96uouTDtOdpknaYkMRthMDdwUyfJHgh2pxfj2uTQXKC5m5jNaJiuOeMGnykc/YDmFlB3t5iU0hzXPY4mi2i9K8RbZxpX+8q+EAm5GKQUMEA0/OJZ30MF7xQ210e6967BKpMSN2ZLvY1RLvVWIsDPbp4Y7j4BiDwMaHnFu1pGz5FqbiQw+IXpZOU67+U7ySo4XQ+Uc9tgyChbI8JAoFubORc4A0wLf7KP7WcqNpLCXqtWPJlLmd0MuGepBqhE39gpIZ+16DJKMIT0jWziswXy+k1RCMOMkQoZM9Ni/Tx30IOAevzmxAOpN0Myxmq9UDZsp48jcZkxwVB1hesEim3/egBt6J0G17aaxZp6N72L4Cqc/LeKyzeOXzcLrtht8MyWGfYtbcnE3vWhqBxIa310Uvpz0cFGKNtv+n9qvlvPHYCAncGIeiocf+eI5ao9bFV4ci5wZlvUgKfVEZb3VfG484WifxTasvoQ42HQAc5OGjPDXBj+9n+v6mRTsvp+fRAuvYj8gh0M=
+  file: artefacts/recorder-*
+  file_glob: true
+  on:
+    repo: waterlink/recorder
+    tags: true
