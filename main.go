@@ -4,10 +4,11 @@ import "os"
 
 var (
 	actions = map[string]Action{
-		"daemon": DaemonAction,
-		"get":    GetAction,
-		"reset":  ResetAction,
-		"is":     IsAction,
+		"daemon":  DaemonAction,
+		"get":     GetAction,
+		"reset":   ResetAction,
+		"is":      IsAction,
+		"version": VersionAction,
 	}
 )
 
