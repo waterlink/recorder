@@ -6,6 +6,7 @@ var (
 	actions = map[string]Action{
 		"daemon": DaemonAction,
 		"get":    GetAction,
+		"reset":  ResetAction,
 	}
 )
 

@@ -71,8 +71,6 @@ recorder get -i 2 POST /api/v2/user    # or --index=2
 
 ### Reset recorder
 
-*NOTE: not implemented yet*
-
 ```bash
 recorder reset
 ```
