@@ -2,7 +2,7 @@
 
 for arch in 386 amd64; do
   for os in linux darwin; do
-    echo "Building recorder-$os-$arch"
-    ./script/static-build $os $arch
+    echo "Building recorder-$os-$arch (SHELL=$SHELL)"
+    $SHELL ./script/static-build $os $arch
   done
 done
