@@ -98,7 +98,6 @@ func (e *JSONExpectation) traverse(data interface{}, parts []string) (interface{
 
 	dataAsSlice, ok := data.([]interface{})
 	if !ok {
-		log.Printf("%#v", data)
 		return nil, fmt.Errorf("Not an Array at suffix %v", parts)
 	}
 
