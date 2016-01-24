@@ -11,7 +11,7 @@ docker run \
   --rm \
   -v $(pwd):$SRC_PATH \
   -w $SRC_PATH \
-  -e "SHELL=sh" \
+  -e "SHELL_OVERRIDE=sh" \
   $need_user \
   golang:1.5-alpine \
   sh ./script/build-all

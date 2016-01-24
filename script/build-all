@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
+version=${TRAVIS_TAG:-dev}
+
 for arch in 386 amd64; do
   for os in linux darwin; do
-    echo "Building recorder-$os-$arch (SHELL=$SHELL)"
-    $SHELL ./script/static-build $os $arch
+    echo "Building recorder-$os-$arch (SHELL=$SHELL_OVERRIDE)"
+    $SHELL_OVERRIDE ./script/static-build $os $arch $version
   done
 done
