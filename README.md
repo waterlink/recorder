@@ -83,6 +83,13 @@ It is enough to send `_TERMINATE` request to a server:
 curl -X_TERMINATE localhost:9977
 ```
 
+This command may fail with `curl: (52) Empty reply from server`, which should
+not be a problem, and typically should be ignored:
+
+```bash
+curl -X_TERMINATE localhost:9977 || true
+```
+
 ### Expectations
 
 #### Expect equal last recorded data

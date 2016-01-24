@@ -21,7 +21,7 @@ setup() {
 }
 
 cleanup() {
-  curl -X_TERMINATE localhost:9977
+  curl -X_TERMINATE localhost:9977 || true
   ./recorder reset
 }
 
